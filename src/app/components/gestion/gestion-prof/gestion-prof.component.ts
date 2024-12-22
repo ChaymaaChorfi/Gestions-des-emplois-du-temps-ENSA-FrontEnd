@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Prof } from 'src/app/models/prof.models';
+import { Profs } from 'src/app/models/profs.models';
 import { ProfServiceService } from 'src/app/services/prof-service.service';
 import Swal from 'sweetalert2';
 
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./gestion-prof.component.css']
 })
 export class GestionProfComponent implements OnInit {
-  profs!: Prof[];
+  profs!: Profs[];
   errorMessage!: string;
   searchFormGroup!: FormGroup;
   page: number = 0;
@@ -35,17 +36,41 @@ export class GestionProfComponent implements OnInit {
     this.searchFormGroup = this.fb.group({
       keyword: this.fb.control('')
     });
-    this.handleSearchCustomers();
+    this.showProfs();
     
   } 
 
-  handleEditeProf(profedit: Prof) {
-    this.router.navigateByUrl('/profs/edit',{state :profedit});
+  handleEditeProf(profedit: Profs) {
+     this.router.navigateByUrl('/profs/edit',{state :profedit});
   }
-    handleChangeSize($event: Event) {
-      this.size = parseInt((<HTMLInputElement>$event.target).value);
-      this.handleSearchCustomers();
-    }  
+
+  
+  handleChangeSize($event: Event) {
+    this.size = parseInt((<HTMLInputElement>$event.target).value);
+    this.showProfs();
+  }  
+
+  showProfs() {
+    const kw = this.searchFormGroup?.value.keyword;
+    this.profService.getProfs(this.page, this.size).subscribe({
+      next: (data) => {
+        this.profs = data.content;
+        this.totalPages = data.totalPages;
+        this.currentPage = data.number;
+        this.totalelements=data.totalElements;
+        this.setDisplayedPages();
+        console.log(data);
+        this.option1=Math.ceil(this.totalelements/4)
+        this.option2= Math.ceil((this.totalelements/2))
+        this.option3=Math.ceil((this.totalelements/4)*3)
+        this.option4=this.totalelements;
+      },
+      error: (err) => {
+        this.errorMessage = err;
+        console.log(err);
+      }
+    });
+  }
 
   handleSearchCustomers() {
     const kw = this.searchFormGroup?.value.keyword;
@@ -69,7 +94,7 @@ export class GestionProfComponent implements OnInit {
     });
   }
 
-  handleDeleteProf(prof: Prof) {
+  handleDeleteProf(prof: Profs) {
   Swal.fire({
     title: 'Vous etes sur?',
     text: "Vous ne pourrez pas revenir en arrière!",
@@ -80,11 +105,20 @@ export class GestionProfComponent implements OnInit {
     confirmButtonText: 'Oui, supprimez-le!'
   }).then((result) => {
     if (result.isConfirmed) {
-      this.profService.deleteProf(prof.id).subscribe();;
+      this.profService.deleteProf(prof.id).subscribe({
+        next: (data) => {
+          console.log(data);
+        },
+        error: (err) => {
+          this.errorMessage = err;
+          console.log(err);
+        }
+      });
+    }
       this.profs.splice( this.profs.indexOf(prof),1);
 
     }
-  });
+  )
 }
 
 
@@ -99,7 +133,7 @@ export class GestionProfComponent implements OnInit {
   gotoPage(page: number) {
     this.currentPage = page;
     this.page = page; // Update the page parameter
-    this.handleSearchCustomers();
+    this.showProfs();
   }
 
   goToPreviousSet() {
@@ -107,7 +141,7 @@ export class GestionProfComponent implements OnInit {
     if (startPage - 3 >= 0) {
       this.currentPage = startPage - 3;
       this.page = this.currentPage; // Update the page parameter
-      this.handleSearchCustomers();
+      this.showProfs();
     }
   }
 
@@ -116,7 +150,7 @@ export class GestionProfComponent implements OnInit {
     if (startPage + 3 < this.totalPages) {
       this.currentPage = startPage + 3;
       this.page = this.currentPage; // Update the page parameter
-      this.handleSearchCustomers();
+      this.showProfs();
     }
   }
 }

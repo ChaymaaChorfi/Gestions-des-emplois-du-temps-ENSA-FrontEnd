@@ -14,30 +14,11 @@
             formControlName="keyword"
             type="text"
             class="form-control"
-            placeholder="Recherche par Prénom ..."
+            placeholder="Recherche par Nom ou Prenom ..."
           />
         </div>
       </div>
-      <div class="col-lg-3 col-md-6">
-        <div class="form-group">
-          <input
-            formControlName="keyword"
-            type="text"
-            class="form-control"
-            placeholder="Recherche par Nom ..."
-          />
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="form-group">
-          <input
-            formControlName="keyword"
-            type="text"
-            class="form-control"
-            placeholder="Recherche par Spécialité ..."
-          />
-        </div>
-      </div>
+
       <div class="col-lg-2">
         <div class="search-student-btn">
           <button type="btn" class="btn btn-primary">Chercher</button>
@@ -62,23 +43,6 @@
               </a>
             </div>
           </div>
-          <div class="row align-items-center">
-            <div class="col">
-              <span class="m-2">Afficher</span>
-              <!-- when selected value change , handle that -->
-              <select
-                (change)="handleChangeSize($event)"
-                class="form-select form-select-sm w-auto"
-              >
-                <option selected="" [ngValue]="option1">{{ option1 }}</option>
-                <option [ngValue]="option2">{{ option2 }}</option>
-                <option [ngValue]="option3">{{ option3 }}</option>
-                <option [ngValue]="option4">{{ option4 }}</option>
-              </select>
-
-              <span class="m-2">Entrées</span>
-            </div>
-          </div>
         </div>
         <div class="table-responsive">
           <table
@@ -95,10 +59,7 @@
                     />
                   </div>
                 </th>
-                <th>CNE</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Téléphone</th>
+                <th>Nom et Prénom</th>
                 <th>Email</th>
                 <th>Spécialité</th>
                 <th class="text-end">Action</th>
@@ -115,12 +76,10 @@
                     />
                   </div>
                 </td>
-                <td>{{ prof.cne }}</td>
-                <td>{{ prof.prenom }}</td>
-                <td>{{ prof.nom }}</td>
-                <td>{{ prof.tel }}</td>
+                <td>{{ prof.name }}</td>
                 <td>{{ prof.email }}</td>
-                <td>{{ prof.specialite }}</td>
+                <td>TO BE DONE</td>
+                <!--  <td>{{ prof.specialite }}</td> -->
                 <td class="text-end">
                   <div class="actions">
                     <button

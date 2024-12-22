@@ -18,39 +18,19 @@
                 ></span>
               </h5>
             </div>
-            <div class="col-12 col-sm-4">
+
+            <div class="col-12">
               <div class="form-group local-forms">
-                <label>Prénom <span class="login-danger">*</span></label>
+                <label>Nom <span class="login-danger">*</span></label>
                 <input
                   class="form-control"
                   type="text"
-                  formControlName="prenom"
+                  formControlName="name"
                 />
               </div>
             </div>
-            <div class="col-12 col-sm-4">
-              <div class="form-group local-forms">
-                <label>Nom <span class="login-danger">*</span></label>
-                <input class="form-control" type="text" formControlName="nom" />
-              </div>
-            </div>
-            <div class="col-12 col-sm-4">
-              <div class="form-group local-forms angle-icon">
-                <label>Civilité <span class="login-danger">*</span></label>
-                <select class="form-control select" formControlName="civilite">
-                  <option value="F">Féminin</option>
-                  <option value="M">Masculin</option>
-                </select>
-              </div>
-            </div>
 
-            <div class="col-12 col-sm-4">
-              <div class="form-group local-forms">
-                <label>CNE <span class="login-danger">*</span></label>
-                <input class="form-control" type="text" formControlName="cne" />
-              </div>
-            </div>
-            <div class="col-12 col-sm-4">
+            <div class="col-12">
               <div class="form-group local-forms">
                 <label>E-Mail <span class="login-danger">*</span></label>
                 <input
@@ -60,43 +40,43 @@
                 />
               </div>
             </div>
-            <div class="col-12 col-sm-4">
-              <div class="form-group local-forms">
-                <label>Spécialité <span class="login-danger">*</span></label>
-                <input
-                  class="form-control"
-                  type="text"
-                  formControlName="specialite"
-                />
-              </div>
-            </div>
-            <div class="col-12 col-sm-4">
-              <div class="form-group local-forms">
-                <label>Téléphone </label>
-                <input class="form-control" type="text" formControlName="tel" />
-              </div>
-            </div>
 
-            <div class="col-12 col-sm-4">
+            <div class="col-12">
               <div class="form-group local-forms">
-                <label
-                  >Nom d'utilisateur <span class="login-danger">*</span></label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  formControlName="login"
-                />
-              </div>
-            </div>
-            <div class="col-12 col-sm-4">
-              <div class="form-group local-forms">
-                <label>Mot de passe <span class="login-danger">*</span></label>
-                <input
-                  type="password"
-                  class="form-control"
-                  formControlName="password"
-                />
+                <label for="programNames">Fillieres</label>
+                <div class="dropdown">
+                  <button
+                    class="btn dropdown-toggle"
+                    type="button"
+                    id="programNamesDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    {{
+                      selectedPrograms.length > 0
+                        ? selectedPrograms.join(", ")
+                        : "Select Program"
+                    }}
+                  </button>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="programNamesDropdown"
+                  >
+                    <li *ngFor="let program of programList">
+                      <a
+                        class="dropdown-item"
+                        href="#"
+                        (click)="toggleProgramSelection(program)"
+                      >
+                        <input
+                          type="checkbox"
+                          [checked]="isSelected(program)"
+                        />
+                        {{ program }}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
 

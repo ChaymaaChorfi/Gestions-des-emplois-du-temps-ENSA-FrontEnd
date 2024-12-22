@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Prof } from '../models/prof.models';
+import { Profs } from '../models/profs.models';
 import {environment} from "../../environments/environment";
 import { PageProf } from '../models/page.models';
 
@@ -18,16 +19,35 @@ export class ProfServiceService {
   public searchProfs(keyword : string,page: number, size: number):Observable<PageProf>{
     return this.http.get<PageProf>(environment.backendHost+"/professors/search?keyword="+keyword+"&page=" + page + "&size=" + size)
   }
-  public saveProf(Prof: Prof):Observable<Prof>{
-    return this.http.post<Prof>(environment.backendHost+"/professors",Prof);
+  public saveProf(Profs: Profs): Observable<HttpResponse<string>> {
+    return this.http.post<string>(`${environment.backendHost}/professors`, Profs, {
+      responseType: 'text' as 'json',
+      observe: 'response' 
+    });
   }
-  public updateProf(id: number,Prof: Prof):Observable<Prof>{
-    return this.http.put<Prof>(environment.backendHost+"/professors/"+id,Prof);
+
+  
+  /*public updateProf(id: number,Prof: Profs):Observable<Profs>{
+    return this.http.put<Profs>(environment.backendHost+"/professors/"+id,Prof);
+  }*/
+
+    public updateProf(id: number,Profs: Profs): Observable<HttpResponse<string>> {
+      return this.http.put<string>(`${environment.backendHost}/professors/`+id, Profs, {
+        responseType: 'text' as 'json',
+        observe: 'response' 
+      });
+    }
+
+
+  public getProf(id: number):Observable<Profs>{
+    return this.http.get<Profs>(environment.backendHost+"/professors/"+id);
   }
-  public getProf(id: number):Observable<Prof>{
-    return this.http.get<Prof>(environment.backendHost+"/professors/"+id);
-  }
-  public deleteProf(id: number): Observable<any>{
-    return this.http.delete(environment.backendHost+"/professors/"+id);
+
+
+  public deleteProf(id: number): Observable<HttpResponse<string>> {
+    return this.http.delete<string>(`${environment.backendHost}/professors/`+ id, {
+      responseType: 'text' as 'json',
+      observe: 'response' 
+    });
   }
 }

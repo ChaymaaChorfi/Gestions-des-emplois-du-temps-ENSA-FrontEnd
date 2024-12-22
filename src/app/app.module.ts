@@ -35,6 +35,10 @@ import { ProfileComponent } from './components/widgets/profile/profile.component
 import { EditProfileComponent } from './components/edit/edit-profile/edit-profile.component';
 import { NonDisponibleComponent } from './components/gestion/non-disponible/non-disponible.component';
 
+import { MatSelectModule } from '@angular/material/select';  
+import {FormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -74,8 +78,12 @@ import { NonDisponibleComponent } from './components/gestion/non-disponible/non-
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-     ReactiveFormsModule,
-     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSelectModule,  
+    MatFormFieldModule,
+    FormsModule,
+     
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,10 +12,7 @@
           </a>
         </div>
         <div class="col ms-md-n2 profile-user-info">
-          <h4 class="user-name mb-0">
-            Professeur {{ prof.nom }} {{ prof.prenom }}
-          </h4>
-          <h6 class="text-muted">{{ prof.specialite }}</h6>
+          <h4 class="user-name mb-0">Professeur {{ prof.name }}</h4>
           <div class="user-Location">
             <i class="fas fa-envelope"></i> {{ prof.email }}
           </div>
@@ -58,13 +55,9 @@
                   <p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">
                     Nom
                   </p>
-                  <p class="col-sm-9">{{ prof.nom }}</p>
+                  <p class="col-sm-9">{{ prof.name }}</p>
                 </div>
                 <div class="row">
-                  <p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">
-                    Prénom
-                  </p>
-                  <p class="col-sm-9">{{ prof.prenom }}</p>
                   <div class="row">
                     <p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">
                       Adresse e-mail
@@ -72,16 +65,6 @@
                     <p class="col-sm-9">
                       {{ prof.email }}
                     </p>
-                  </div>
-                  <div class="row">
-                    <p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">
-                      Mobile
-                    </p>
-                    <p class="col-sm-9">{{ prof.tel }}</p>
-                  </div>
-                  <div class="row">
-                    <p class="col-sm-3 text-muted text-sm-end mb-0">CIN</p>
-                    <p class="col-sm-9 mb-0">{{ prof.cne }}</p>
                   </div>
                 </div>
               </div>

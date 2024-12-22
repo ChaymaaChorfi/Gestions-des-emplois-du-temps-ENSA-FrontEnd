@@ -1,11 +1,11 @@
 import { Classe } from "./classes.models";
 import { Departement } from "./departement.models";
 import { Filiere } from "./filieres.models";
-import { Prof } from "./prof.models";
+import { Profs } from "./profs.models";
 import { Salle } from "./salles.models";
 
 export interface PageProf {
-    content:          Prof[];
+    content:          Profs[];
     totalPages:       number;
     totalElements:    number;
     size:             number;

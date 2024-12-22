@@ -1,5 +1,5 @@
 import { CookieService } from 'ngx-cookie-service';
-import { Prof } from './../../../models/prof.models';
+import { Profs } from './../../../models/profs.models';
 import { Component, OnInit } from '@angular/core';
 import { ProfServiceService } from 'src/app/services/prof-service.service';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class ProfileComponent implements OnInit{
 
-  prof!: Prof;
+  prof!: Profs;
 updatePasswordFormGroup!: FormGroup;
   constructor(private cookieService: CookieService, private profService: ProfServiceService,private router: Router,private fb: FormBuilder) {
   }
@@ -29,18 +29,19 @@ updatePasswordFormGroup!: FormGroup;
   }
   getProf(id: number){
     this.profService.getProf(id).subscribe(
-      (prof: Prof) => {
+      (prof: Profs) => {
         this.prof = prof;
       }
     );
   }
 
-handleEditeProf(profedit: Prof) {
+handleEditeProf(profedit: Profs) {
     this.router.navigateByUrl('/profile/edit',{state :profedit});
   }
+  
 
   handleUpdatePassword() {
-  if (this.updatePasswordFormGroup.valid) {
+  /*if (this.updatePasswordFormGroup.valid) {
     if (this.updatePasswordFormGroup.value.newPassword !== this.updatePasswordFormGroup.value.confirmPassword) {
       Swal.fire('Erreur', 'Les mots de passe ne correspondent pas', 'error');
       return;
@@ -64,7 +65,7 @@ handleEditeProf(profedit: Prof) {
     });
   } else {
     Swal.fire('Erreur', 'Veuillez remplir correctement tous les champs du formulaire', 'error');
-  }
+  }*/
 }
 
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Prof } from 'src/app/models/prof.models';
+import { Profs } from 'src/app/models/profs.models';
 import { ProfServiceService } from 'src/app/services/prof-service.service';
 import Swal from 'sweetalert2';
 
@@ -12,13 +12,13 @@ import Swal from 'sweetalert2';
 })
 export class EditProfileComponent {
 editProfFormGroup!: FormGroup;
-  prof!: Prof;
+  prof!: Profs;
 
   
   constructor(private profService: ProfServiceService,
     private fb: FormBuilder,
     private router: Router,private route : ActivatedRoute) {
-    this.prof=this.router.getCurrentNavigation()?.extras.state as Prof;
+    this.prof=this.router.getCurrentNavigation()?.extras.state as Profs;
   }
 
   ngOnInit(): void {
@@ -40,22 +40,15 @@ editProfFormGroup!: FormGroup;
   setFormValues() {
     if (this.prof) {
       this.editProfFormGroup.patchValue({
-        prenom: this.prof.prenom,
-        nom: this.prof.nom,
-        civilite: this.prof.civilite,
-        cne: this.prof.cne,
+        nom: this.prof.name,
         email: this.prof.email,
-        specialite: this.prof.specialite,
-        tel: this.prof.tel,
-        login: this.prof.login,
-        password: this.prof.password
       });
     }
   }
 
   handleUpdateProf() {
     if (this.editProfFormGroup.valid && this.prof) {
-      const updatedProf: Prof = {
+      const updatedProf: Profs = {
         ...this.prof,
         ...this.editProfFormGroup.value
       };
