@@ -38,6 +38,12 @@ import { NonDisponibleComponent } from './components/gestion/non-disponible/non-
 import { MatSelectModule } from '@angular/material/select';  
 import {FormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -83,9 +89,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatSelectModule,  
     MatFormFieldModule,
     FormsModule,
+    MatChipsModule,
+    MatIconModule,
+    MatInputModule,
      
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

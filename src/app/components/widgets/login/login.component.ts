@@ -61,7 +61,6 @@ export class LoginComponent implements OnInit {
         const profile = googleUser.getBasicProfile();
         console.log('Name:', profile.getName());
         console.log('Email:', profile.getEmail());
-        console.log('ID Token:', googleUser.getAuthResponse().id_token);
 
         const idToken = googleUser.getAuthResponse().id_token;
 
@@ -86,8 +85,6 @@ export class LoginComponent implements OnInit {
         const savedToken = this.getToken();
         if (savedToken) {
           const payload = this.decodeJwt(jwt);
-          console.log("Payload:", payload);
-
           this.authService.loggedIn = true;
         
           this.cookieService.set('username', payload?.name);
@@ -95,19 +92,14 @@ export class LoginComponent implements OnInit {
           let role = payload?.role;
           this.cookieService.set('role', role);
 
-          // Access specific claims
-          const subject = payload?.sub || "N/A";
-          const name = payload?.name || "N/A";
-          const issuedAt = payload?.iat || "N/A";
-
-          console.log(`Subject: ${subject}, Name: ${name}, Issued At: ${issuedAt}`);
         }
           Swal.fire('Success', 'You are now logged in!', 'success');
           this.ngZone.run(() => {
-            this.router.navigate(['/profs']);
- 
-          //window.location.reload;          
-        });
+            this.router.navigate(['/profs']).then(() => {
+              window.location.reload();
+            });
+          });
+          
               },
       error: (error) => {
         console.error('Authentication failed:', error);

@@ -1,11 +1,19 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Profs } from 'src/app/models/profs.models';
 import { ProfServiceService } from 'src/app/services/prof-service.service';
 import Swal from 'sweetalert2';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
+import { ErrorStateMatcher } from '@angular/material/core';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-add-new-prof',
@@ -16,7 +24,11 @@ export class AddNewProfComponent {
 
   programNames = new FormControl('');
   programList: string[] = ['p1', 'p2'];
-  selectedPrograms: string[] = []; 
+
+  selectedPrograms = new FormControl('', [Validators.required]);
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  nameFormControl = new FormControl('', [Validators.required]);
+  matcher = new MyErrorStateMatcher();
 
   newProfFormGroup!: FormGroup;
   
@@ -30,31 +42,14 @@ export class AddNewProfComponent {
     });
   }
 
-
-  // This method toggles the selection of a program
-  toggleProgramSelection(program: string): void {
-    const index = this.selectedPrograms.indexOf(program);
-    if (index === -1) {
-      this.selectedPrograms.push(program); // Add the program if not already selected
-    } else {
-      this.selectedPrograms.splice(index, 1); // Remove the program if already selected
-    }
-    this.newProfFormGroup.get('programNames')?.setValue(this.selectedPrograms);
-
-    console.log('Selected Values:', this.selectedPrograms);  // Should log an array like ['p1', 'p2']
-
-  }
-
-  // This method checks if a program is selected
-  isSelected(program: string): boolean {
-    return this.selectedPrograms.includes(program);
-  }
-
-  
-  
   
 
   handleAddProf() {
+
+    this.newProfFormGroup.get('programNames')?.setValue(this.selectedPrograms.value);
+    this.newProfFormGroup.get('email')?.setValue(this.emailFormControl.value);
+    this.newProfFormGroup.get('name')?.setValue(this.nameFormControl.value);
+
     if (this.newProfFormGroup.valid) {
       const newProf: Profs = this.newProfFormGroup.value;
       this.profService.saveProf(newProf).subscribe({

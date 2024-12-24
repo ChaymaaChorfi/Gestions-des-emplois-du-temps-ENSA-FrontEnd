@@ -24,9 +24,8 @@ import { NonDisponibleComponent } from './components/gestion/non-disponible/non-
 import { LoginComponent } from './components/widgets/login/login.component';
 
 const routes: Routes = [
-  { path :'' , component: LoginComponent},
-  { path :'index' , component: LoginComponent},
-    { path :'home' , component: LoginComponent},
+  { path :'' , component: HomeComponent},
+    { path :'home' , component: HomeComponent},
     { path :'profs' , component: GestionProfComponent},
     { path :'profs/add' , component: AddNewProfComponent},
     { path :'filieres' , component: GestionFiliereComponent},
