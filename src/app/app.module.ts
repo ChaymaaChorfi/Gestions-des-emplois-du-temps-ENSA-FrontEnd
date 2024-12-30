@@ -31,6 +31,8 @@ import { ActionsComponent } from './components/dashboard/actions/actions.compone
 import { EditFiliereComponent } from './components/edit/edit-filiere/edit-filiere.component';
 import { EditClasseComponent } from './components/edit/edit-classe/edit-classe.component';
 import { LoginComponent } from './components/widgets/login/login.component';
+import { SignupComponent } from './components/widgets/signup/signup.component';
+
 import { ProfileComponent } from './components/widgets/profile/profile.component';
 import { EditProfileComponent } from './components/edit/edit-profile/edit-profile.component';
 import { NonDisponibleComponent } from './components/gestion/non-disponible/non-disponible.component';
@@ -75,6 +77,7 @@ import { MatInputModule } from '@angular/material/input';
     EditFiliereComponent,
     EditClasseComponent,
     LoginComponent,
+    SignupComponent,
     ProfileComponent,
     EditProfileComponent,
     NonDisponibleComponent

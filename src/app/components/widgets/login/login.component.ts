@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
 
   googleAuth: any;
 
-
   ngOnInit(): void {
     this.initializeGoogleAuth();
   }
@@ -51,6 +50,7 @@ export class LoginComponent implements OnInit {
 
   loginWithGoogle(): void {
     if (this.googleAuth) {
+      this.googleAuth.disconnect();
      console.log('Sign in using the popup mode ' ,this.googleAuth);
       this.googleAuth.signIn({
         prompt: 'select_account', 
@@ -99,6 +99,7 @@ export class LoginComponent implements OnInit {
               window.location.reload();
             });
           });
+
           
               },
       error: (error) => {
@@ -147,6 +148,15 @@ export class LoginComponent implements OnInit {
     console.error("Failed to decode JWT:", error);
     return null;
   }
+}
+
+signUp():void{
+  this.ngZone.run(() => {
+    this.router.navigate(['/signUp']).then(() => {
+      window.location.reload();
+    });
+  });
+
 }
 
 

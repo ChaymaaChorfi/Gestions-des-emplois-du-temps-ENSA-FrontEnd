@@ -22,9 +22,11 @@ import { EditProfileComponent } from './components/edit/edit-profile/edit-profil
 import { NonDisponibleComponent } from './components/gestion/non-disponible/non-disponible.component';
 
 import { LoginComponent } from './components/widgets/login/login.component';
+import { SignupComponent } from './components/widgets/signup/signup.component';
 
 const routes: Routes = [
   { path :'' , component: HomeComponent},
+  { path :'signUp' , component: SignupComponent},
     { path :'home' , component: HomeComponent},
     { path :'profs' , component: GestionProfComponent},
     { path :'profs/add' , component: AddNewProfComponent},

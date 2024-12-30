@@ -23,7 +23,7 @@ export class EditProfComponent implements OnInit {
   editProfFormGroup!: FormGroup;
   prof!: Profs;
 
-  programList: string[] = ['p1', 'p2','GI'];
+  programList: string[] = ['p1', 'p2'];
 
   selectedPrograms = new FormControl('', [Validators.required]);
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);

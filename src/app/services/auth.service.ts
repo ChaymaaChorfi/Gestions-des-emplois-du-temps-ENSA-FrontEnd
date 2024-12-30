@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Student } from '../models/student.models';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +24,13 @@ export class AuthService {
     return this.http.post<any>(environment.backendHost +'/auth/login', loginData);
   }
 
+  SignUp(Student: Student): Observable<HttpResponse<string>> {
+    return this.http.post<string>(environment.backendHost +'/students', Student,  {
+      responseType: 'text' as 'json',
+      observe: 'response' 
+    });
+  }
+  
   authenticateWithGoogle(idToken: string): Observable<any> {
     return this.http.post(environment.backendHost +'/google', { idToken });
   }

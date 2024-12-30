@@ -34,7 +34,7 @@ handleLogout(){
           // refresh page
           // vhange route 
           this.router.navigateByUrl('/');
-         // window.location.reload();
+          window.location.reload();
       }
       )
       
