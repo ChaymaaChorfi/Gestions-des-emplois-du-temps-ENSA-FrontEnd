@@ -9,6 +9,7 @@ import { FooterComponent } from './components/widgets/footer/footer.component';
 import { PageHeaderComponent } from './components/widgets/page-header/page-header.component';
 import { StatistiqueComponent } from './components/widgets/statistique/statistique.component';
 import { AddNewProfComponent } from './components/add/add-new-prof/add-new-prof.component';
+import { AddNewAdminComponent } from './components/add/add-new-admin/add-new-admin.component';
 import { GestionProfComponent } from './components/gestion/gestion-prof/gestion-prof.component';
 import { HomeComponent } from './components/home/home.component';
 import { GestionFiliereComponent } from './components/gestion/gestion-filiere/gestion-filiere.component';
@@ -46,6 +47,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { GestionAdminComponent } from './components/gestion/gestion-admin/gestion-admin.component';
+import { EditAdminComponent } from './components/edit/edit-admin/edit-admin.component';
 
 
 @NgModule({
@@ -58,7 +61,9 @@ import { MatInputModule } from '@angular/material/input';
     StatistiqueComponent,
     ActionsComponent,
     AddNewProfComponent,
+    AddNewAdminComponent,
     GestionProfComponent,
+    GestionAdminComponent,
     HomeComponent,
     GestionFiliereComponent,
     AddNewFiliereComponent,
@@ -70,6 +75,7 @@ import { MatInputModule } from '@angular/material/input';
     AddNewSalleComponent,
     TimetableComponent,
     EditProfComponent,
+    EditAdminComponent,
     NotFoundComponent,
     EditDepartementComponent,
     EditSalleComponent,

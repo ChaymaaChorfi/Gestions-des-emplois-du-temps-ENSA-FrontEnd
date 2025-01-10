@@ -1,3 +1,4 @@
+import { Admins } from "./admins.models";
 import { Classe } from "./classes.models";
 import { Departement } from "./departement.models";
 import { Filiere } from "./filieres.models";
@@ -10,8 +11,11 @@ export interface PageProf {
     totalElements:    number;
     size:             number;
     number:           number;
-    numberOfElements: number;
-    
+    numberOfElements: number;  
+}
+export interface PageAdmin {
+    content:          Admins[];
+     
 }
 export interface PageDepartment {
     content:          Departement[];

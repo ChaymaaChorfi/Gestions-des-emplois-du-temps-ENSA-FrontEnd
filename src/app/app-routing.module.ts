@@ -23,6 +23,9 @@ import { NonDisponibleComponent } from './components/gestion/non-disponible/non-
 
 import { LoginComponent } from './components/widgets/login/login.component';
 import { SignupComponent } from './components/widgets/signup/signup.component';
+import { AddNewAdminComponent } from './components/add/add-new-admin/add-new-admin.component';
+import { GestionAdminComponent } from './components/gestion/gestion-admin/gestion-admin.component';
+import { EditAdminComponent } from './components/edit/edit-admin/edit-admin.component';
 
 const routes: Routes = [
   { path :'' , component: HomeComponent},
@@ -30,6 +33,9 @@ const routes: Routes = [
     { path :'home' , component: HomeComponent},
     { path :'profs' , component: GestionProfComponent},
     { path :'profs/add' , component: AddNewProfComponent},
+    { path :'admins' , component: GestionAdminComponent},
+    { path :'admins/add' , component: AddNewAdminComponent},
+    { path :'admins/edit' , component: EditAdminComponent},
     { path :'filieres' , component: GestionFiliereComponent},
     { path :'filieres/add' , component: AddNewFiliereComponent},
     { path :'departements' , component: GestionDepartmentComponent},

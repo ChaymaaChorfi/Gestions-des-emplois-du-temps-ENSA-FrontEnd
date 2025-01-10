@@ -1,18 +1,12 @@
-<app-page-header
-  [link]="'profs'"
-  [prev]="'Enseignants'"
-  [current]="'Modifier un Enseignant'"
-></app-page-header>
-
 <div class="row">
   <div class="col-sm-12">
     <div class="card comman-shadow">
       <div class="card-body">
-        <form [formGroup]="editProfFormGroup" (submit)="handleUpdateProf()">
+        <form [formGroup]="newAdminFormGroup" (ngSubmit)="handleAdd()">
           <div class="row">
             <div class="col-12">
               <h5 class="form-title student-info">
-                Informations sur l'Enseignant<span
+                Informations sur l'admin<span
                   ><a href="javascript:;"
                     ><i class="feather-more-vertical"></i></a
                 ></span>
@@ -37,7 +31,7 @@
                     matInput
                     [formControl]="emailFormControl"
                     [errorStateMatcher]="matcher"
-                    placeholder="Ex. pat@uit.ac.ma"
+                    placeholder="Ex. prenom.nom@uit.ac.ma"
                   />
                   @if (emailFormControl.hasError('email') &&
                   !emailFormControl.hasError('required')) {
@@ -49,24 +43,11 @@
               </form>
             </div>
 
-            <div class="col-12">
-              <form class="form">
-                <mat-form-field class="form-full-width">
-                  <mat-label>Fillieres</mat-label>
-                  <mat-select [formControl]="selectedPrograms" multiple>
-                    @for (program of programList; track program) {
-                    <mat-option [value]="program">{{ program }}</mat-option>
-                    }
-                  </mat-select>
-                </mat-form-field>
-              </form>
-            </div>
-
             <div
               class="col-12 d-flex align-items-center justify-content-center"
             >
               <div class="student-submit">
-                <button type="submit" class="btn btn-primary">Modifier</button>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
               </div>
             </div>
           </div>

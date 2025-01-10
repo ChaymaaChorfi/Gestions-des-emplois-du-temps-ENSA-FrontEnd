@@ -11,9 +11,9 @@ import { PageProf } from '../models/page.models';
 })
 export class ProfServiceService {
 
-   constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) { }
 
-   public getProfs(page: number, size: number): Observable<PageProf> {
+  public getProfs(page: number, size: number): Observable<PageProf> {
     return this.http.get<PageProf>(environment.backendHost + "/professors?page=" + page + "&size=" + size);
   }
   public searchProfs(keyword : string,page: number, size: number):Observable<PageProf>{
