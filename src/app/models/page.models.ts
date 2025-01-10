@@ -1,4 +1,5 @@
 import { Admins } from "./admins.models";
+import { Class } from "./class.model";
 import { Classe } from "./classes.models";
 import { Departement } from "./departement.models";
 import { Filiere } from "./filieres.models";
@@ -43,7 +44,7 @@ export interface PageFiliere {
     numberOfElements: number;
     }
 export interface PageClasse {
-    content:          Classe[];
+    content:          Class[];
     totalPages:       number;
     totalElements:    number;
     size:             number;
