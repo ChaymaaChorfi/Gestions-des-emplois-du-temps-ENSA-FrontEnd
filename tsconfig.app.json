@@ -3,6 +3,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
+<<<<<<< HEAD
     "types": [
       "node"
     ]
@@ -11,6 +12,12 @@
     "src/main.ts",
     "src/main.server.ts",
     "server.ts"
+=======
+    "types": []
+  },
+  "files": [
+    "src/main.ts"
+>>>>>>> wiam/wiam
   ],
   "include": [
     "src/**/*.d.ts"

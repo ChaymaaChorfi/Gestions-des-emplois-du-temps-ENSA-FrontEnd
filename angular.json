@@ -3,7 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+<<<<<<< HEAD
     "angular-frontend": {
+=======
+    "pi": {
+>>>>>>> wiam/wiam
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -11,16 +15,25 @@
       "prefix": "app",
       "architect": {
         "build": {
+<<<<<<< HEAD
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/angular-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
+=======
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/pi",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+>>>>>>> wiam/wiam
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
+<<<<<<< HEAD
               "src/favicon.ico",
               "src/assets"
             ],
@@ -33,6 +46,24 @@
             "ssr": {
               "entry": "server.ts"
             }
+=======
+              "src/app/assets/",
+              "src/favicon.ico",
+              "src/assets",
+              "src/assets/img/*"
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css"
+            ],
+            "scripts": [
+  "node_modules/jquery/dist/jquery.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+  "src/assets/js/feather.min.js",
+  "src/assets/js/script.js"
+]
+
+>>>>>>> wiam/wiam
           },
           "configurations": {
             "production": {
@@ -51,9 +82,18 @@
               "outputHashing": "all"
             },
             "development": {
+<<<<<<< HEAD
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+=======
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+>>>>>>> wiam/wiam
             }
           },
           "defaultConfiguration": "production"
@@ -62,10 +102,17 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
+<<<<<<< HEAD
               "buildTarget": "angular-frontend:build:production"
             },
             "development": {
               "buildTarget": "angular-frontend:build:development"
+=======
+              "browserTarget": "pi:build:production"
+            },
+            "development": {
+              "browserTarget": "pi:build:development"
+>>>>>>> wiam/wiam
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +120,11 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+<<<<<<< HEAD
             "buildTarget": "angular-frontend:build"
+=======
+            "browserTarget": "pi:build"
+>>>>>>> wiam/wiam
           }
         },
         "test": {
@@ -89,12 +140,26 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "src/styles.css"
             ],
             "scripts": []
+=======
+              "@angular/material/prebuilt-themes/indigo-pink.css"
+            ],
+            "scripts": [
+              
+            ]
+>>>>>>> wiam/wiam
           }
         }
       }
     }
+<<<<<<< HEAD
+=======
+  },
+  "cli": {
+    "analytics": "0fbec8bc-1e19-429a-8a48-fb7ae64a7498"
+>>>>>>> wiam/wiam
   }
 }
