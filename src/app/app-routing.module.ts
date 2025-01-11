@@ -3,21 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { GestionProfComponent } from './components/gestion/gestion-prof/gestion-prof.component';
 import { AddNewProfComponent } from './components/add/add-new-prof/add-new-prof.component';
 import { HomeComponent } from './components/home/home.component';
-import { GestionFiliereComponent } from './components/gestion/gestion-filiere/gestion-filiere.component';
-import { AddNewFiliereComponent } from './components/add/add-new-filiere/add-new-filiere.component';
-import { AddNewDepartementComponent } from './components/add/add-new-departement/add-new-departement.component';
-import { GestionClasseComponent } from './components/gestion/gestion-classe/gestion-classe.component';
-import { AddNewClasseComponent } from './components/add/add-new-classe/add-new-classe.component';
-import { GestionSallesComponent } from './components/gestion/gestion-salles/gestion-salles.component';
-import { AddNewSalleComponent } from './components/add/add-new-salle/add-new-salle.component';
-import {TimetableComponent} from "./components/timetable/timetable.component";
 import { EditProfComponent } from './components/edit/edit-prof/edit-prof.component';
 import { NotFoundComponent } from './components/widgets/not-found/not-found.component';
-import { GestionDepartmentComponent } from './components/gestion/gestion-departement/gestion-departement.component';
-import { EditDepartementComponent } from './components/edit/edit-departement/edit-departement.component';
-import { EditSalleComponent } from './components/edit/edit-salle/edit-salle.component';
-import {EditFiliereComponent} from "./components/edit/edit-filiere/edit-filiere.component";
-import {EditClasseComponent} from "./components/edit/edit-classe/edit-classe.component";
 import { EditProfileComponent } from './components/edit/edit-profile/edit-profile.component';
 import { NonDisponibleComponent } from './components/gestion/non-disponible/non-disponible.component';
 
@@ -26,6 +13,14 @@ import { SignupComponent } from './components/widgets/signup/signup.component';
 import { AddNewAdminComponent } from './components/add/add-new-admin/add-new-admin.component';
 import { GestionAdminComponent } from './components/gestion/gestion-admin/gestion-admin.component';
 import { EditAdminComponent } from './components/edit/edit-admin/edit-admin.component';
+import { GestionProgramComponent } from './components/gestion/gestion-program/gestion-program.component';
+import { AddNewProgramComponent } from './components/add/add-new-program/add-new-program.component';
+import { EditProgramComponent } from './components/edit/edit-program/edit-program.component';
+import { GestionClassComponent } from './components/gestion/gestion-class/gestion-class.component';
+import { AddNewClassComponent } from './components/add/add-new-class/add-new-class.component';
+import { EditClassComponent } from './components/edit/edit-class/edit-class.component';
+import { GestionModuleComponent } from './components/gestion/gestion-module/gestion-module.component';
+import { AddNewModuleComponent } from './components/add/add-new-module/add-new-module.component';
 
 const routes: Routes = [
   { path :'' , component: HomeComponent},
@@ -36,22 +31,19 @@ const routes: Routes = [
     { path :'admins' , component: GestionAdminComponent},
     { path :'admins/add' , component: AddNewAdminComponent},
     { path :'admins/edit' , component: EditAdminComponent},
-    { path :'filieres' , component: GestionFiliereComponent},
-    { path :'filieres/add' , component: AddNewFiliereComponent},
-    { path :'departements' , component: GestionDepartmentComponent},
-    { path :'departements/add' , component: AddNewDepartementComponent},
-    { path :'classes' , component: GestionClasseComponent},
-    { path :'classes/add' , component: AddNewClasseComponent},
-    { path :'salles' , component: GestionSallesComponent},
-    { path :'salles/add' , component: AddNewSalleComponent},
-    { path :'emploitemps' , component: TimetableComponent},
-    {path:'profs/edit',component:EditProfComponent},
-    { path :'departements/edit' , component: EditDepartementComponent},
-    { path :'salles/edit' , component: EditSalleComponent},
-    { path :'filieres/edit' , component: EditFiliereComponent},
-    { path :'classes/edit' , component: EditClasseComponent},
+    { path :'programs' , component: GestionProgramComponent},
+    { path :'programs/add' , component: AddNewProgramComponent},
+    { path :'programs/edit' , component: EditProgramComponent},
+    { path :'profs/edit',component:EditProfComponent},
+    { path :'classes' , component: GestionClassComponent},
+    { path :'classes/add' , component: AddNewClassComponent},
+    { path :'classes/edit' , component: EditClassComponent},
+    { path :'modules' , component: GestionModuleComponent},
+    { path :'modules/add' , component: AddNewModuleComponent},
+
     { path :'profile/edit' , component: EditProfileComponent},
     { path :'nonDesponibles' , component: NonDisponibleComponent},
+
     // not-found
     { path :'**' , component: NotFoundComponent},
 ];

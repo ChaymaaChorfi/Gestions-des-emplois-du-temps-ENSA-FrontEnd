@@ -12,25 +12,12 @@ import { AddNewProfComponent } from './components/add/add-new-prof/add-new-prof.
 import { AddNewAdminComponent } from './components/add/add-new-admin/add-new-admin.component';
 import { GestionProfComponent } from './components/gestion/gestion-prof/gestion-prof.component';
 import { HomeComponent } from './components/home/home.component';
-import { GestionFiliereComponent } from './components/gestion/gestion-filiere/gestion-filiere.component';
-import { AddNewFiliereComponent } from './components/add/add-new-filiere/add-new-filiere.component';
-import { AddNewDepartementComponent } from './components/add/add-new-departement/add-new-departement.component';
-import { GestionClasseComponent } from './components/gestion/gestion-classe/gestion-classe.component';
-import { AddNewClasseComponent } from './components/add/add-new-classe/add-new-classe.component';
-import { GestionSallesComponent } from './components/gestion/gestion-salles/gestion-salles.component';
-import { AddNewSalleComponent } from './components/add/add-new-salle/add-new-salle.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { TimetableComponent } from './components/timetable/timetable.component';
 import { EditProfComponent } from './components/edit/edit-prof/edit-prof.component';
 import { NotFoundComponent } from './components/widgets/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { GestionDepartmentComponent } from './components/gestion/gestion-departement/gestion-departement.component';
-import { EditDepartementComponent } from './components/edit/edit-departement/edit-departement.component';
-import { EditSalleComponent } from './components/edit/edit-salle/edit-salle.component';
 import { ActionsComponent } from './components/dashboard/actions/actions.component';
-import { EditFiliereComponent } from './components/edit/edit-filiere/edit-filiere.component';
-import { EditClasseComponent } from './components/edit/edit-classe/edit-classe.component';
 import { LoginComponent } from './components/widgets/login/login.component';
 import { SignupComponent } from './components/widgets/signup/signup.component';
 
@@ -49,6 +36,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { GestionAdminComponent } from './components/gestion/gestion-admin/gestion-admin.component';
 import { EditAdminComponent } from './components/edit/edit-admin/edit-admin.component';
+import { AddNewProgramComponent } from './components/add/add-new-program/add-new-program.component';
+import { EditProgramComponent } from './components/edit/edit-program/edit-program.component';
+import { GestionProgramComponent } from './components/gestion/gestion-program/gestion-program.component';
+import { GestionClassComponent } from './components/gestion/gestion-class/gestion-class.component';
+import { EditClassComponent } from './components/edit/edit-class/edit-class.component';
+import { AddNewClassComponent } from './components/add/add-new-class/add-new-class.component';
+import { GestionModuleComponent } from './components/gestion/gestion-module/gestion-module.component';
+import { AddNewModuleComponent } from './components/add/add-new-module/add-new-module.component';
 
 
 @NgModule({
@@ -65,28 +60,24 @@ import { EditAdminComponent } from './components/edit/edit-admin/edit-admin.comp
     GestionProfComponent,
     GestionAdminComponent,
     HomeComponent,
-    GestionFiliereComponent,
-    AddNewFiliereComponent,
-    AddNewDepartementComponent,
-    GestionClasseComponent,
-    AddNewClasseComponent,
-    GestionDepartmentComponent,
-    GestionSallesComponent,
-    AddNewSalleComponent,
-    TimetableComponent,
+    GestionProgramComponent,
+    AddNewProgramComponent,
     EditProfComponent,
     EditAdminComponent,
     NotFoundComponent,
-    EditDepartementComponent,
-    EditSalleComponent,
     ActionsComponent,
-    EditFiliereComponent,
-    EditClasseComponent,
+    EditProgramComponent,
     LoginComponent,
     SignupComponent,
     ProfileComponent,
     EditProfileComponent,
-    NonDisponibleComponent
+    NonDisponibleComponent,
+    GestionClassComponent,
+    EditClassComponent,
+    AddNewClassComponent,
+    GestionModuleComponent,
+    AddNewModuleComponent,
+
   ],
   imports: [
     BrowserModule,

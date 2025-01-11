@@ -1,28 +1,23 @@
-<app-page-header
-  [link]="'filieres'"
-  [prev]="'filières'"
-  [current]="'Home'"
-></app-page-header>
 <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchFilieres()">
-<div class="student-group-form">
-  <div class="row">
-    <div class="col-lg-3 col-md-6">
-      <div class="form-group">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Recherche par libellé..."
-        />
+  <div class="student-group-form">
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Recherche par libellé..."
+          />
+        </div>
       </div>
-    </div>
 
-    <div class="col-lg-2">
-      <div class="search-student-btn">
-        <button type="button" class="btn btn-primary">Chercher</button>
+      <div class="col-lg-2">
+        <div class="search-student-btn">
+          <button type="button" class="btn btn-primary">Chercher</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </form>
 <div class="row">
   <div class="col-sm-12">
@@ -56,7 +51,7 @@
         <table
           class="table border-0 star-student table-hover table-center mb-0 datatable table-striped"
         >
-          <thead class="student-thread" >
+          <thead class="student-thread">
             <tr>
               <th>
                 <div class="form-check check-tables">
@@ -77,7 +72,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let filiere of filieres ">
+            <tr *ngFor="let filiere of filieres">
               <td>
                 <div class="form-check check-tables">
                   <input
@@ -87,17 +82,18 @@
                   />
                 </div>
               </td>
-              <td>{{ filiere.id}}</td>
-              <td>{{ filiere.libelle}}</td>
-              <td>{{ filiere.nombreSem}}</td>
-              <td>{{ filiere.chefFiliere}}</td>
-              <td>{{ filiere.departement.libelle}}</td>
+              <td>{{ filiere.id }}</td>
+              <td>{{ filiere.libelle }}</td>
+              <td>{{ filiere.nombreSem }}</td>
+              <td>{{ filiere.chefFiliere }}</td>
+              <td>{{ filiere.departement.libelle }}</td>
               <td class="text-end">
                 <div class="actions">
                   <a
                     class="btn btn-sm bg-success-light me-2"
                     (click)="handleEditeFiliere(filiere)"
-                  > <i class="fas fa-edit"></i>
+                  >
+                    <i class="fas fa-edit"></i>
                   </a>
                   <a
                     (click)="handleDeleteFiliere(filiere)"
@@ -111,8 +107,10 @@
           </tbody>
         </table>
         <ul class="pagination justify-content-end mt-4">
-          <li class="page-item " [ngClass]="{ disabled: currentPage === 0 }">
-            <a class="page-link" tabindex="-1" (click)="goToPreviousSet()">Précédent </a>
+          <li class="page-item" [ngClass]="{ disabled: currentPage === 0 }">
+            <a class="page-link" tabindex="-1" (click)="goToPreviousSet()"
+              >Précédent
+            </a>
           </li>
           <li
             class="page-item"

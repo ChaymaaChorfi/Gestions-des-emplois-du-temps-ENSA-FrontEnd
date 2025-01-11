@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Prof } from '../models/prof.models';
 import { Profs } from '../models/profs.models';
 import {environment} from "../../environments/environment";
 import { PageProf } from '../models/page.models';
