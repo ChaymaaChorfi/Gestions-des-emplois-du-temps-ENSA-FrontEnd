@@ -14,7 +14,11 @@
   </head>
 
   <body>
+<<<<<<< HEAD
     <ng-container>
+=======
+    <ng-container *ngIf="isAuthenticated; else unauthenticated">
+>>>>>>> source-repo/main
       <div class="main-wrapper">
         <app-navbar></app-navbar>
         <app-sidebar></app-sidebar>
@@ -27,8 +31,19 @@
       </div>
     </ng-container>
 
+<<<<<<< HEAD
     <ng-template #indexPage>
      
+=======
+    <ng-template #unauthenticated>
+      <ng-container *ngIf="currentRoute === 'signUp'; else loginPage">
+        <app-signup></app-signup>
+      </ng-container>
+
+      <ng-template #loginPage>
+        <app-login></app-login>
+      </ng-template>
+>>>>>>> source-repo/main
     </ng-template>
   </body>
 </html>

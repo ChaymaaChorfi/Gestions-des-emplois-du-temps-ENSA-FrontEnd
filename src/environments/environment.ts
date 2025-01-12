@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
+<<<<<<< HEAD
   backendHost : "http://localhost:8088"
+=======
+  backendHost : "http://localhost:8088/api"
+>>>>>>> source-repo/main
 };
 
 /*

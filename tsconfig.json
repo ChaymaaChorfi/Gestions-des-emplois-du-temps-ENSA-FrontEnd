@@ -3,28 +3,40 @@
   "compileOnSave": false,
   "compilerOptions": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "outDir": "./dist/out-tsc",
 =======
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
 >>>>>>> wiam/wiam
+=======
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+>>>>>>> source-repo/main
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
     "skipLibCheck": true,
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
 =======
+=======
+>>>>>>> source-repo/main
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
+<<<<<<< HEAD
 >>>>>>> wiam/wiam
+=======
+>>>>>>> source-repo/main
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,

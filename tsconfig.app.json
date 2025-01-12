@@ -4,6 +4,7 @@
   "compilerOptions": {
     "outDir": "./out-tsc/app",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "types": [
       "node"
     ]
@@ -13,11 +14,16 @@
     "src/main.server.ts",
     "server.ts"
 =======
+=======
+>>>>>>> source-repo/main
     "types": []
   },
   "files": [
     "src/main.ts"
+<<<<<<< HEAD
 >>>>>>> wiam/wiam
+=======
+>>>>>>> source-repo/main
   ],
   "include": [
     "src/**/*.d.ts"

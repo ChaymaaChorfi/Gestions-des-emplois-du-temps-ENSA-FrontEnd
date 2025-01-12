@@ -4,10 +4,14 @@
   "newProjectRoot": "projects",
   "projects": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "angular-frontend": {
 =======
     "pi": {
 >>>>>>> wiam/wiam
+=======
+    "pi": {
+>>>>>>> source-repo/main
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,23 +20,30 @@
       "architect": {
         "build": {
 <<<<<<< HEAD
+<<<<<<< HEAD
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/angular-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
 =======
+=======
+>>>>>>> source-repo/main
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/pi",
             "index": "src/index.html",
             "main": "src/main.ts",
+<<<<<<< HEAD
 >>>>>>> wiam/wiam
+=======
+>>>>>>> source-repo/main
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
+<<<<<<< HEAD
 <<<<<<< HEAD
               "src/favicon.ico",
               "src/assets"
@@ -47,12 +58,15 @@
               "entry": "server.ts"
             }
 =======
+=======
+>>>>>>> source-repo/main
               "src/app/assets/",
               "src/favicon.ico",
               "src/assets",
               "src/assets/img/*"
             ],
             "styles": [
+<<<<<<< HEAD
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
@@ -64,6 +78,18 @@
 ]
 
 >>>>>>> wiam/wiam
+=======
+              "src/custom-theme.scss",
+              "src/styles.css",
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/script.js",
+              "src/assets/js/feather.min.js"
+            ]
+>>>>>>> source-repo/main
           },
           "configurations": {
             "production": {
@@ -83,17 +109,23 @@
             },
             "development": {
 <<<<<<< HEAD
+<<<<<<< HEAD
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
 =======
+=======
+>>>>>>> source-repo/main
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+<<<<<<< HEAD
 >>>>>>> wiam/wiam
+=======
+>>>>>>> source-repo/main
             }
           },
           "defaultConfiguration": "production"
@@ -102,6 +134,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
+<<<<<<< HEAD
 <<<<<<< HEAD
               "buildTarget": "angular-frontend:build:production"
             },
@@ -113,6 +146,12 @@
             "development": {
               "browserTarget": "pi:build:development"
 >>>>>>> wiam/wiam
+=======
+              "buildTarget": "pi:build:production"
+            },
+            "development": {
+              "buildTarget": "pi:build:development"
+>>>>>>> source-repo/main
             }
           },
           "defaultConfiguration": "development"
@@ -121,10 +160,14 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
 <<<<<<< HEAD
+<<<<<<< HEAD
             "buildTarget": "angular-frontend:build"
 =======
             "browserTarget": "pi:build"
 >>>>>>> wiam/wiam
+=======
+            "buildTarget": "pi:build"
+>>>>>>> source-repo/main
           }
         },
         "test": {
@@ -141,25 +184,37 @@
             ],
             "styles": [
 <<<<<<< HEAD
+<<<<<<< HEAD
               "src/styles.css"
             ],
             "scripts": []
 =======
               "@angular/material/prebuilt-themes/indigo-pink.css"
+=======
+>>>>>>> source-repo/main
             ],
             "scripts": [
               
             ]
+<<<<<<< HEAD
 >>>>>>> wiam/wiam
+=======
+>>>>>>> source-repo/main
           }
         }
       }
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   },
   "cli": {
     "analytics": "0fbec8bc-1e19-429a-8a48-fb7ae64a7498"
 >>>>>>> wiam/wiam
+=======
+  },
+  "cli": {
+    "analytics": "0fbec8bc-1e19-429a-8a48-fb7ae64a7498"
+>>>>>>> source-repo/main
   }
 }
