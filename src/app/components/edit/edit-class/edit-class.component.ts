@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
   styleUrl: './edit-class.component.css'
 })
 export class EditClassComponent implements OnInit {
+  typeList: string[] = ["Amphi", "Salle", "Tp"];
   editFormGroup!: FormGroup;
   class!: Class;
   capacityFormControl = new FormControl(0, [Validators.required]);

@@ -1,4 +1,3 @@
-import { Prof } from './../../models/prof.models';
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 

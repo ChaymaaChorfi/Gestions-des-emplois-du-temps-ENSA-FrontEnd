@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Prof } from 'src/app/models/prof.models';
 import { Profs } from 'src/app/models/profs.models';
 import { ProfServiceService } from 'src/app/services/prof-service.service';
 import Swal from 'sweetalert2';

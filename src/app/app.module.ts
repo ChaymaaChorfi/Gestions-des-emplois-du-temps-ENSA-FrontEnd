@@ -23,7 +23,6 @@ import { SignupComponent } from './components/widgets/signup/signup.component';
 
 import { ProfileComponent } from './components/widgets/profile/profile.component';
 import { EditProfileComponent } from './components/edit/edit-profile/edit-profile.component';
-import { NonDisponibleComponent } from './components/gestion/non-disponible/non-disponible.component';
 
 import { MatSelectModule } from '@angular/material/select';  
 import {FormsModule} from '@angular/forms';
@@ -71,7 +70,6 @@ import { AddNewModuleComponent } from './components/add/add-new-module/add-new-m
     SignupComponent,
     ProfileComponent,
     EditProfileComponent,
-    NonDisponibleComponent,
     GestionClassComponent,
     EditClassComponent,
     AddNewClassComponent,

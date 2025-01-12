@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Module } from 'src/app/models/module.model';
 import { Program } from 'src/app/models/program.model';
+import { ModuleServiceService } from 'src/app/services/module-service.service';
 import { ProgramServiceService } from 'src/app/services/program-service.service';
 import Swal from 'sweetalert2';
 
@@ -12,6 +14,12 @@ import Swal from 'sweetalert2';
   styleUrl: './edit-program.component.css'
 })
 export class EditProgramComponent implements OnInit {
+  semesterList: number[] = [0,1,2,3,4,5,6,7,8,9];
+  moduleList: string[] = [];
+  moduleNames = new FormControl(['']);
+  semester = new FormControl(0);
+  selectedModules = new FormControl('', [Validators.required]);
+
   editFormGroup!: FormGroup;
   program!: Program;
   semesterFormControl = new FormControl(0, [Validators.required]);
@@ -19,29 +27,48 @@ export class EditProgramComponent implements OnInit {
   
   constructor(private programservice: ProgramServiceService,
     private fb: FormBuilder,
+    private moduleService : ModuleServiceService,
     private router: Router,private route : ActivatedRoute) {
     this.program=this.router.getCurrentNavigation()?.extras.state as Program;
   }
 
   
   ngOnInit(): void {
+    this.fetch();
     this.editFormGroup = this.fb.group({
       programName: [''],
-      semester: Number,     
+      semester: Number,  
+      moduleNames: [[]],
+   
     });
 
     this.setFormValues();
   }
 
+  fetch(): void{
+      this.moduleService.getModules().subscribe({
+          next: (response) => {
+            console.log(response);
+            this.moduleList = response.map((module: Module) => module.moduleName);
+          },
+          error: (err) => {
+            console.error(err);
+            Swal.fire('Erreur', 'Une erreur est survenue lors de l\'ajout du module.', 'error');
+          }
+        });
+      
+    }
 
   setFormValues() {
     if (this.program) {
       this.semesterFormControl.setValue(this.program.semester);
       this.nameFormControl.setValue(this.program.programName);
+      this.moduleNames.setValue(this.program.modulesNames);
 
       this.editFormGroup.patchValue({
         programName: this.program.programName,
         semester: this.program.semester,
+        moduleNames: this.program.modulesNames,
       });
     }
   }
@@ -49,6 +76,7 @@ export class EditProgramComponent implements OnInit {
   handleUpdate() {
     this.editFormGroup.get('semester')?.setValue(this.semesterFormControl.value);
     this.editFormGroup.get('programName')?.setValue(this.nameFormControl.value);
+    this.editFormGroup.get('moduleNames')?.setValue(this.moduleNames.value);
 
 
     if (this.editFormGroup.valid && this.program) {

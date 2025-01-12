@@ -6,7 +6,6 @@ import { HomeComponent } from './components/home/home.component';
 import { EditProfComponent } from './components/edit/edit-prof/edit-prof.component';
 import { NotFoundComponent } from './components/widgets/not-found/not-found.component';
 import { EditProfileComponent } from './components/edit/edit-profile/edit-profile.component';
-import { NonDisponibleComponent } from './components/gestion/non-disponible/non-disponible.component';
 
 import { LoginComponent } from './components/widgets/login/login.component';
 import { SignupComponent } from './components/widgets/signup/signup.component';
@@ -42,7 +41,6 @@ const routes: Routes = [
     { path :'modules/add' , component: AddNewModuleComponent},
 
     { path :'profile/edit' , component: EditProfileComponent},
-    { path :'nonDesponibles' , component: NonDisponibleComponent},
 
     // not-found
     { path :'**' , component: NotFoundComponent},

@@ -14,9 +14,10 @@ import { Class } from 'src/app/models/class.model';
   styleUrl: './add-new-class.component.css'
 })
 export class AddNewClassComponent {
+  typeList: string[] = ["Amphi", "Salle", "Tp"];
   nameFormControl = new FormControl('', [Validators.required]);
   capacityFormControl = new FormControl(0, [Validators.required]);
-  typeFormControl = new FormControl('Cours', [Validators.required]);
+  typeFormControl = new FormControl('', [Validators.required]);
   newFormGroup!: FormGroup;
   
   constructor(private fb: FormBuilder,private classService : ClassServiceService, private router:Router) {}

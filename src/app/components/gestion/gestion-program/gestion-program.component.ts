@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Module } from 'src/app/models/modules.models';
 import { Program } from 'src/app/models/program.model';
 import { ProgramServiceService } from 'src/app/services/program-service.service';
 import Swal from 'sweetalert2';
@@ -12,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class GestionProgramComponent implements OnInit {
   programs!: Program[];
+  modulesperProgram!: string[];
   errorMessage!: string;
   searchFormGroup!: FormGroup;
   page: number = 0;
@@ -54,6 +56,7 @@ export class GestionProgramComponent implements OnInit {
     this.programService.getPrograms().subscribe({
       next: (data) => {
         this.programs = data;
+        console.log(data);
         /*this.totalPages = data.totalPages;
         this.currentPage = data.number;
         this.totalelements=data.totalElements*/

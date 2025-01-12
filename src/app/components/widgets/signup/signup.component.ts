@@ -7,6 +7,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 import {Student} from '../../../models/student.models'
 import { ErrorStateMatcher } from '@angular/material/core';
+import { ProgramServiceService } from 'src/app/services/program-service.service';
+import { Program } from 'src/app/models/program.model';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -23,8 +25,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class SignupComponent {
 
   programNames = new FormControl('');
-  programList: string[] = ['p1', 'p2'];
-  semesterList: number[] = [1,2,3,4,5,6,7,8,9];
+  programList: string[] = [];
+  semesterList: number[] = [0,1,2,3,4,5,6,7,8,9];
   selectedSemesters = new FormControl('', [Validators.required]);
 
   selectedPrograms = new FormControl('', [Validators.required]);
@@ -36,12 +38,28 @@ export class SignupComponent {
 
   constructor(
       private authService: AuthService,
+      private programService : ProgramServiceService,
       private fb: FormBuilder,
       private router: Router,
       private ngZone: NgZone,
     ) {}
 
+  fetch(): void{
+      this.programService.getPrograms().subscribe({
+          next: (response) => {
+            console.log(response);
+            this.programList = response.map((program: Program) => program.programName);
+          },
+          error: (err) => {
+            console.error(err);
+            Swal.fire('Erreur', 'Une erreur est survenue lors de l\'ajout du programme.', 'error');
+          }
+        });
+        
+    }
+
     ngOnInit(): void {
+      this.fetch();
       this.newStudentFormGroup = this.fb.group({
         name: this.fb.control(null),
         email: this.fb.control(null),

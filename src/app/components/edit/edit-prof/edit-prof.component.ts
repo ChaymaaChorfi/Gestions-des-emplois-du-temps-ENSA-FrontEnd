@@ -3,7 +3,9 @@ import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Valida
 import { ErrorStateMatcher } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Profs } from 'src/app/models/profs.models';
+import { Program } from 'src/app/models/program.model';
 import { ProfServiceService } from 'src/app/services/prof-service.service';
+import { ProgramServiceService } from 'src/app/services/program-service.service';
 import Swal from 'sweetalert2';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -23,7 +25,7 @@ export class EditProfComponent implements OnInit {
   editProfFormGroup!: FormGroup;
   prof!: Profs;
 
-  programList: string[] = ['p1', 'p2'];
+  programList: string[] = [];
 
   selectedPrograms = new FormControl('', [Validators.required]);
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
@@ -32,12 +34,28 @@ export class EditProfComponent implements OnInit {
   
   constructor(private profService: ProfServiceService,
     private fb: FormBuilder,
+    private programService : ProgramServiceService,
     private router: Router,private route : ActivatedRoute) {
     this.prof=this.router.getCurrentNavigation()?.extras.state as Profs;
   }
 
+  fetch(): void{
+      this.programService.getPrograms().subscribe({
+          next: (response) => {
+            console.log(response);
+            this.programList = response.map((program: Program) => program.programName);
+          },
+          error: (err) => {
+            console.error(err);
+            Swal.fire('Erreur', 'Une erreur est survenue lors de l\'ajout du programme.', 'error');
+          }
+        });
+        
+    }
+
   
   ngOnInit(): void {
+    this.fetch();
     this.editProfFormGroup = this.fb.group({
       name: [''],
       email: [''],     

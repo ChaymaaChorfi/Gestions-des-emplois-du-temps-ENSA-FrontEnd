@@ -7,6 +7,8 @@ import Swal from 'sweetalert2';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { ProgramServiceService } from 'src/app/services/program-service.service';
+import { Program } from 'src/app/models/program.model';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -23,7 +25,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class AddNewProfComponent {
 
   programNames = new FormControl('');
-  programList: string[] = ['p1', 'p2'];
+  programList: string[] = [];
 
   selectedPrograms = new FormControl('', [Validators.required]);
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
@@ -32,9 +34,10 @@ export class AddNewProfComponent {
 
   newProfFormGroup!: FormGroup;
   
-  constructor(private fb: FormBuilder,private profService : ProfServiceService, private router:Router) {}
+  constructor(private fb: FormBuilder,private programService : ProgramServiceService,private profService : ProfServiceService, private router:Router) {}
 
   ngOnInit(): void {
+    this.fetch();
     this.newProfFormGroup = this.fb.group({
       name: this.fb.control(null),
       email: this.fb.control(null),
@@ -42,6 +45,19 @@ export class AddNewProfComponent {
     });
   }
 
+  fetch(): void{
+    this.programService.getPrograms().subscribe({
+        next: (response) => {
+          console.log(response);
+          this.programList = response.map((program: Program) => program.programName);
+        },
+        error: (err) => {
+          console.error(err);
+          Swal.fire('Erreur', 'Une erreur est survenue lors de l\'ajout du programme.', 'error');
+        }
+      });
+      
+  }
   
 
   handleAddProf() {

@@ -1,5 +1,5 @@
 import { Module } from "./modules.models";
-import { Prof } from "./prof.models";
+import { Profs } from "./profs.models";
 import { Salle } from "./salles.models";
 
 export interface ElementDeModule {
@@ -7,7 +7,7 @@ export interface ElementDeModule {
     volumeHoraire: number;
     libelle:       string;
     module:        Module ;
-    enseignant:    Prof;
+    enseignant:    Profs;
     jour:            string;
     periode:     string;
     salle:           Salle;
